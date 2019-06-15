@@ -27,7 +27,8 @@ header h1 {
 main {
   height: 100vh;
   background-color: #f8f9fa;
-  padding: 65px 20px;
+  padding-top: 60px;
+  overflow-y: scroll;
 }
 
 main .container {
