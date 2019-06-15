@@ -1,3 +1,7 @@
+body button {
+  outline: none;
+}
+
 /* ヘッダー */
 
 header {
@@ -37,7 +41,7 @@ main .todo-card {
   width: 300px;
   height: 300px;
   margin: 10px;
-  padding: 20px;
+  padding: 10px;
   display: flex;
   flex-flow: column;
   justify-content: space-between;
@@ -51,18 +55,26 @@ main .todo-card textarea {
   margin: 0 auto;
   resize: none;
   padding: 10px;
+  margin-bottom: 10px;
 }
 
 main .todo-card textarea:focus {
   border: 1px solid #339af0;
-  color: #ced4da;
-  outline: none;
-  width: 280px;
-  height: 230px;
-  margin: 0 auto;
-  resize: none;
-  padding: 10px;
   color: #212529;
+}
+
+main .todo-card button {
+  width: 22px;
+  height: 22px;
+  color: #343a40;
+  border: none;
+  cursor: pointer;
+  margin-left: auto;
+  margin-bottom: 10px;
+}
+
+main .todo-card button:hover {
+  font-weight: bold;
 }
 
 main .todo-card span {

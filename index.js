@@ -1,4 +1,4 @@
-const todos = [createTodo("始めてのTodoです。")];
+let todos = [createTodo("始めてのTodoです。")];
 
 const mainEl = document.querySelector("main");
 const containerEl = document.querySelector("main .container");
@@ -39,6 +39,11 @@ function createTodo(content) {
 function createTodoEl(newTodo) {
   const todoContainerEl = document.createElement("div");
   todoContainerEl.classList.add("todo-card");
+
+  const todoDeleteButtonEl = document.createElement("button");
+  todoDeleteButtonEl.innerHTML = "&times;";
+  todoDeleteButtonEl.addEventListener("click", createTodoDeleter(newTodo));
+
   const todoTextareaEl = document.createElement("textarea");
   todoTextareaEl.value = newTodo.content;
   todoTextareaEl.addEventListener("change", createTodoUpdater(newTodo));
@@ -46,6 +51,7 @@ function createTodoEl(newTodo) {
   const todoCreatedAtTextEl = document.createElement("span");
   todoCreatedAtTextEl.textContent = newTodo.createdAt.toString();
 
+  todoContainerEl.appendChild(todoDeleteButtonEl);
   todoContainerEl.appendChild(todoTextareaEl);
   todoContainerEl.appendChild(todoCreatedAtTextEl);
 
@@ -57,4 +63,11 @@ function createTodoUpdater(todo) {
     todo.content = e.target.value;
     updateTodoEls();
   };
+}
+
+function createTodoDeleter(todo) {
+  return function() {
+    todos = todos.filter(baseTodo => baseTodo.id !== todo.id);
+    updateTodoEls();
+  }
 }
