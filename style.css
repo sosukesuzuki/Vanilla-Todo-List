@@ -26,6 +26,51 @@ main {
   padding: 65px 20px;
 }
 
+main .container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+main .todo-card {
+  border: 1px solid #ced4da;
+  background-color: #fff;
+  width: 300px;
+  height: 300px;
+  margin: 10px;
+  padding: 20px;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+}
+
+main .todo-card textarea {
+  border: 1px solid #dee2e6;
+  outline: none;
+  width: 280px;
+  height: 230px;
+  margin: 0 auto;
+  resize: none;
+  padding: 10px;
+}
+
+main .todo-card textarea:focus {
+  border: 1px solid #339af0;
+  color: #ced4da;
+  outline: none;
+  width: 280px;
+  height: 230px;
+  margin: 0 auto;
+  resize: none;
+  padding: 10px;
+  color: #212529;
+}
+
+main .todo-card span {
+  color: #868e96;
+  font-weight: bold;
+  font-size: 15px;
+}
+
 /* ボタン */
 
 .add-button {
