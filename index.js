@@ -20,9 +20,12 @@ function updateTodoEls() {
   todoEls.forEach(todoEl => containerEl.appendChild(todoEl));
 }
 
-function getUnique(){
+function getUnique() {
   const strong = 1000;
-  return new Date().getTime().toString(16)  + Math.floor(strong*Math.random()).toString(16);
+  return (
+    new Date().getTime().toString(16) +
+    Math.floor(strong * Math.random()).toString(16)
+  );
 }
 
 function createTodo(content) {
@@ -38,6 +41,8 @@ function createTodoEl(newTodo) {
   todoContainerEl.classList.add("todo-card");
   const todoTextareaEl = document.createElement("textarea");
   todoTextareaEl.value = newTodo.content;
+  todoTextareaEl.addEventListener("change", createTodoUpdater(newTodo));
+
   const todoCreatedAtTextEl = document.createElement("span");
   todoCreatedAtTextEl.textContent = newTodo.createdAt.toString();
 
@@ -45,4 +50,11 @@ function createTodoEl(newTodo) {
   todoContainerEl.appendChild(todoCreatedAtTextEl);
 
   return todoContainerEl;
+}
+
+function createTodoUpdater(todo) {
+  return function(e) {
+    todo.content = e.target.value;
+    updateTodoEls();
+  };
 }
