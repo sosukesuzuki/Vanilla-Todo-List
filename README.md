@@ -1,3 +1,4 @@
-# Todo List
+# Vanilla Todo List
 
-友人がhtmlとcssとjsの練習をするというのでそのために開発したTodo Listのサンプルです。
+A simple Todo List build with VanillaJS.
+
